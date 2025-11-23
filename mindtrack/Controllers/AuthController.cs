@@ -27,6 +27,18 @@ namespace mindtrack.Controllers
             this._userRepository = userRepository;
         }
 
+        /// <summary>
+        /// Autentica um usuário e retorna um token JWT.
+        /// </summary>
+        /// <remarks>
+        /// Este endpoint valida as credenciais do usuário (username e senha). 
+        /// Se as credenciais estiverem corretas e o usuário tiver um perfil de acesso,
+        /// um token JWT é gerado e retornado.
+        /// </remarks>
+        /// <param name="model">O DTO (Objeto de Transferência de Dados) contendo o username e a senha.</param>
+        /// <response code="200">OK. Retorna o token JWT de autenticação.</response>
+        /// <response code="401">Unauthorized. Retornado se o username não existir, a senha estiver incorreta, ou o usuário não possuir um perfil (role) associado.</response>
+
         [HttpPost("login")]
         [AllowAnonymous]
         [ProducesResponseType(typeof(LoginResponseDto), 200)]
@@ -58,6 +70,10 @@ namespace mindtrack.Controllers
             return BCrypt.Net.BCrypt.Verify(password, passwordHash);
         }
 
+
+        /// <summary>
+        /// DTO (Data Transfer Object) para a resposta do endpoint de login.
+        /// </summary>
         public class LoginResponseDto
         {
             /// <summary>
