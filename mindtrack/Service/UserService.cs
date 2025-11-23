@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using mindtrack.Connection;
-using mindtrack.DTO;
+using mindtrack.DTO.Request;
 using mindtrack.DTO.Response;
 using mindtrack.Model;
 using mindtrack.Repository;
@@ -74,7 +74,8 @@ namespace mindtrack.Service
             {
                 Nome = dto.Nome,
                 Email = dto.Email,
-                Senha = BCrypt.Net.BCrypt.HashPassword(dto.Senha), 
+                Senha = BCrypt.Net.BCrypt.HashPassword(dto.Senha),
+                Genero = dto.Genero,
                 Setor = dto.Setor,
                 Cargo = dto.Cargo,
                 DataAdmissao = dto.DataAdmissao
@@ -88,6 +89,7 @@ namespace mindtrack.Service
                 IdUser = user.IdUser,
                 Nome = user.Nome,
                 Email = user.Email,
+                Genero = user.Genero,
                 Setor = user.Setor,
                 Cargo = user.Cargo,
                 DataAdmissao = user.DataAdmissao
@@ -98,6 +100,7 @@ namespace mindtrack.Service
         private User UserUpdateMapper(User user, UserDto dto)
         {
             user.Nome = dto.Nome;
+            user.Genero = dto.Genero;
             user.Email = dto.Email;
             user.Setor = dto.Setor;
             user.Cargo = dto.Cargo;

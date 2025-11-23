@@ -1,13 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace mindtrack.DTO
+namespace mindtrack.DTO.Request
 {
     public class UserDto
     {
         [Required(ErrorMessage = "O campo Nome é obrigatório.")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "O nome deve ter entre 3 e 100 caracteres.")]
         public string Nome { get; set; }
+
+
+        [Required(ErrorMessage = "O campo Genero é obrigatório.")]
+        public string Genero { get; set; }
 
         [Required(ErrorMessage = "O campo E-mail é obrigatório.")]
         [EmailAddress(ErrorMessage = "O formato do e-mail é inválido.")]

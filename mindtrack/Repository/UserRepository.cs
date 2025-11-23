@@ -29,7 +29,7 @@ namespace mindtrack.Repository
             return user;
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.IdUser == id);
         }
@@ -42,9 +42,12 @@ namespace mindtrack.Repository
             await _context.SaveChangesAsync();
         }
 
-        public Task<User> GetByUsernameAsync(string username)
+        public async Task<User?> GetByUsernameAsync(string username)
         {
-            throw new NotImplementedException();
+       
+            return await _context.Users
+                                 .AsNoTracking()
+                                 .FirstOrDefaultAsync(u => u.Email.ToLower() == username.ToLower());
         }
 
         public async Task<IEnumerable<User>> GetAllAsync(int page, int size)

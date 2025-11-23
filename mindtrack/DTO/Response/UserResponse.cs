@@ -9,6 +9,8 @@ namespace mindtrack.DTO.Response
 
         public String Nome { get; set; }
 
+        public String Genero { get; set; }
+
         public String Email { get; set; }
 
         public String Setor { get; set; }

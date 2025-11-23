@@ -1,9 +1,9 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using mindtrack.DTO;
-using mindtrack.DTO.Response; 
-using mindtrack.DTO.Shared;  
+using mindtrack.DTO.Request;
+using mindtrack.DTO.Response;
+using mindtrack.DTO.Shared;
 using mindtrack.Service;
 
 namespace mindtrack.Controllers
@@ -88,7 +88,7 @@ namespace mindtrack.Controllers
         /// <response code="201">Retorna usuário recém-criado com sucesso.</response>
         /// <response code="400">Se os dados fornecidos forem inválidos.</response>
         [HttpPost]
-        [AllowAnonymous] // Cuidado: Em produção, criar usuário geralmente exige Auth
+        [AllowAnonymous]
         [ProducesResponseType(typeof(UserResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Post([FromBody] UserDto dto)
