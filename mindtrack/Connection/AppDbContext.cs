@@ -9,7 +9,10 @@ namespace mindtrack.Connection
 
         public DbSet<User> Users { get; set; }
         public DbSet<CheckinHumor> Checkins { get; set; }
+        public DbSet<Notificacao> Notifications { get; set; }
+        public DbSet<PlanoBemEstar> Planos { get; set; }
 
+        public DbSet<RecomendacaoIA> Recomendacoes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

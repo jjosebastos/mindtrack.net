@@ -78,6 +78,12 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<CheckinHumorService>();
 builder.Services.AddScoped<ICheckinHumorRepository, CheckinHumorRepository>();
+builder.Services.AddScoped<INotificacaoRepository, NotificacaoRepository>();
+builder.Services.AddScoped<NotificacaoService>();
+builder.Services.AddScoped<IPlanoBemEstarRepository, PlanoBemEstarRepository>();
+builder.Services.AddScoped<PlanoBemEstarService>();
+builder.Services.AddScoped<IRecomendacaoIARepository, RecomendacaoIARepository>();
+builder.Services.AddScoped<RecomendacaoIAService>();
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
