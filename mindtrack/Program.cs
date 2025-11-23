@@ -84,6 +84,9 @@ builder.Services.AddScoped<IPlanoBemEstarRepository, PlanoBemEstarRepository>();
 builder.Services.AddScoped<PlanoBemEstarService>();
 builder.Services.AddScoped<IRecomendacaoIARepository, RecomendacaoIARepository>();
 builder.Services.AddScoped<RecomendacaoIAService>();
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+builder.Services.AddScoped<DashboardService>();
+
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
